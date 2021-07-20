@@ -25,6 +25,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
             val numeroUsuario = binding.editTextUsuario.text.toString().trim()
             val password = binding.editTextPassword.text.toString().trim()
             validation(numeroUsuario,password)
+            findNavController().navigate(R.id.action_loginFragment_to_homeFragment)
         }
     }
 
