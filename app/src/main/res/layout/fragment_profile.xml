@@ -1,14 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".ui.profile.ProfileFragment">
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
+        android:id="@+id/tv_codigo"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Perfil" />
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:layout_marginTop="150dp"
+        android:text="Código:"
+        android:textSize="25sp"
+        android:textColor="@color/black"/>
+    <TextView
+        android:id="@+id/tv_apellido"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:text="Apellido:"
+        android:textSize="25sp"
+        android:textColor="@color/black"/>
+    <TextView
+        android:id="@+id/tv_nombre"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:text="Nombre:"
+        android:textSize="25sp"
+        android:textColor="@color/black"/>
+    <TextView
+        android:id="@+id/tv_direccion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:text="Dirección:"
+        android:textSize="25sp"
+        android:textColor="@color/black"/>
+    <TextView
+        android:id="@+id/tv_Factura"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:text="Factura:"
+        android:textSize="25sp"
+        android:textColor="@color/black"/>
+    <TextView
+        android:id="@+id/tv_repartidor"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:text="Repartidor:"
+        android:textSize="25sp"
+        android:textColor="@color/black"/>
 
-</FrameLayout>
+    <Button
+        android:id="@+id/btn_logout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Cerrar Session"
+        android:layout_marginTop="80dp"/>
+
+</LinearLayout>

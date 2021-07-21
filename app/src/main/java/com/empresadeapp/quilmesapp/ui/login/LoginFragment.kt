@@ -19,7 +19,6 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
         binding = FragmentLoginBinding.bind(view)
         doLogin()
     }
-
     private fun doLogin() {
         binding.btnSignin.setOnClickListener {
             val numeroUsuario = binding.editTextUsuario.text.toString().trim()
