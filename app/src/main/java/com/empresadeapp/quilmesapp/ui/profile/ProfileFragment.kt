@@ -5,18 +5,29 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.activityViewModels
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import com.empresadeapp.quilmesapp.R
+import com.empresadeapp.quilmesapp.data.remote.login.LoginDataSource
 import com.empresadeapp.quilmesapp.databinding.FragmentProfileBinding
+import com.empresadeapp.quilmesapp.domain.login.LoginRepoImpl
+import com.empresadeapp.quilmesapp.presentation.login.LoginViewModel
+import com.empresadeapp.quilmesapp.presentation.login.LoginViewModelFactory
+import com.empresadeapp.quilmesapp.presentation.login.UserViewModel
 
 
 class ProfileFragment : Fragment(R.layout.fragment_profile) {
 
     private lateinit var binding: FragmentProfileBinding
+    private val mainViewModel : UserViewModel by activityViewModels()
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentProfileBinding.bind(view)
+        getUserData()
         logOut()
     }
 
@@ -24,6 +35,18 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
         binding.btnLogout.setOnClickListener {
             findNavController().navigate(R.id.action_profileFragment_to_loginFragment)
         }
+    }
+
+    private fun getUserData(){
+        // Recibir datos de login
+        mainViewModel.getUser().observe(viewLifecycleOwner, Observer { data ->
+            binding.tvCodigo.text = "Código: ${data.codigo}"
+            binding.tvApellido.text = "Apellido: ${data.apellido}"
+            binding.tvNombre.text = "Nombre: ${data.nombre}"
+            binding.tvDireccion.text = "Dirección: ${data.direccion}"
+            binding.tvFactura.text = "Tipo de Factura: ${data.factura}"
+            binding.tvRepartidor.text = "Repartidor: ${data.repartidor}"
+        })
     }
 
 }

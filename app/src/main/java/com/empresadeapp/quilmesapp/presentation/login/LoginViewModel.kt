@@ -8,8 +8,6 @@ import kotlinx.coroutines.Dispatchers
 
 class LoginViewModel(private val repo: LoginRepo): ViewModel() {
 
-    private val user = MutableLiveData<User>()
-
     fun login(numeroUsuario: String, password: String) = liveData(Dispatchers.IO) {
         emit(Result.Loading())
         try {

@@ -1,9 +1,11 @@
 package com.empresadeapp.quilmesapp.ui.login
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.View
 import android.widget.Toast
+import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
@@ -14,12 +16,15 @@ import com.empresadeapp.quilmesapp.core.Result
 import com.empresadeapp.quilmesapp.domain.login.LoginRepoImpl
 import com.empresadeapp.quilmesapp.presentation.login.LoginViewModel
 import com.empresadeapp.quilmesapp.presentation.login.LoginViewModelFactory
+import com.empresadeapp.quilmesapp.presentation.login.UserViewModel
 
 
 class LoginFragment : Fragment(R.layout.fragment_login) {
 
     private lateinit var binding: FragmentLoginBinding
     private val viewModel by viewModels<LoginViewModel> {LoginViewModelFactory(LoginRepoImpl(LoginDataSource())) }
+    private val mainViewModel : UserViewModel by activityViewModels()
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -31,8 +36,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
             val numeroUsuario = binding.editTextUsuario.text.toString().trim()
             val password = binding.editTextPassword.text.toString().trim()
             validation(numeroUsuario,password)
-            getUserData(numeroUsuario,password)
-            findNavController().navigate(R.id.action_loginFragment_to_homeFragment)
+            login(numeroUsuario,password)
         }
     }
 
@@ -47,7 +51,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
         }
     }
 
-    private fun getUserData(numeroUsuario: String,password: String) {
+    private fun login(numeroUsuario: String,password: String) {
         viewModel.login(numeroUsuario,password).observe(viewLifecycleOwner, Observer { result ->
             when (result) {
                 is Result.Loading -> {
@@ -55,10 +59,14 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
                     binding.btnSignin.isEnabled = false
                 }
                 is Result.Success -> {
-                    binding.progressbar.visibility = View.GONE
-                    binding.btnSignin.isEnabled = true
-                    findNavController().navigate(R.id.action_loginFragment_to_homeFragment)
-
+                    // Enviar datos a profile
+                    if (result.data.codigo == numeroUsuario && result.data.contra == password){
+                        mainViewModel.setUser(result.data)
+                        Log.d("hola1","${result.data}")
+                        findNavController().navigate(R.id.action_loginFragment_to_homeFragment)
+                        binding.progressbar.visibility = View.GONE
+                        binding.btnSignin.isEnabled = true
+                    }
                 }
                 is Result.Failure -> {
                     binding.progressbar.visibility = View.GONE
