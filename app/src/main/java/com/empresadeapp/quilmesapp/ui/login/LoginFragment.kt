@@ -16,14 +16,14 @@ import com.empresadeapp.quilmesapp.core.Result
 import com.empresadeapp.quilmesapp.domain.login.LoginRepoImpl
 import com.empresadeapp.quilmesapp.presentation.login.LoginViewModel
 import com.empresadeapp.quilmesapp.presentation.login.LoginViewModelFactory
-import com.empresadeapp.quilmesapp.presentation.login.UserViewModel
+import com.empresadeapp.quilmesapp.presentation.login.DataViewModel
 
 
 class LoginFragment : Fragment(R.layout.fragment_login) {
 
     private lateinit var binding: FragmentLoginBinding
     private val viewModel by viewModels<LoginViewModel> {LoginViewModelFactory(LoginRepoImpl(LoginDataSource())) }
-    private val mainViewModel : UserViewModel by activityViewModels()
+    private val mainViewModel : DataViewModel by activityViewModels()
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -60,7 +60,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
                 }
                 is Result.Success -> {
                     // Enviar datos a profile
-                    if (result.data.codigo == numeroUsuario && result.data.contra == password){
+                    if (result.data.contra == password){
                         mainViewModel.setUser(result.data)
                         Log.d("hola1","${result.data}")
                         findNavController().navigate(R.id.action_loginFragment_to_homeFragment)

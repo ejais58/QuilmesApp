@@ -2,26 +2,19 @@ package com.empresadeapp.quilmesapp.ui.profile
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
-import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import com.empresadeapp.quilmesapp.R
-import com.empresadeapp.quilmesapp.data.remote.login.LoginDataSource
 import com.empresadeapp.quilmesapp.databinding.FragmentProfileBinding
-import com.empresadeapp.quilmesapp.domain.login.LoginRepoImpl
-import com.empresadeapp.quilmesapp.presentation.login.LoginViewModel
-import com.empresadeapp.quilmesapp.presentation.login.LoginViewModelFactory
-import com.empresadeapp.quilmesapp.presentation.login.UserViewModel
+import com.empresadeapp.quilmesapp.presentation.login.DataViewModel
 
 
 class ProfileFragment : Fragment(R.layout.fragment_profile) {
 
     private lateinit var binding: FragmentProfileBinding
-    private val mainViewModel : UserViewModel by activityViewModels()
+    private val mainViewModel : DataViewModel by activityViewModels()
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

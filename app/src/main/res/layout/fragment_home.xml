@@ -1,14 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:paddingTop="170dp"
     tools:context=".ui.home.HomeFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+    <Button
+            android:id="@+id/button_Promo"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:text="Destacado"/>
+    <Button
+            android:id="@+id/button_Quilmes"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:text="Quilmes"/>
+    <Button
+        android:id="@+id/button_Pepsi"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:text="Pepsi"/>
+    <Button
+            android:id="@+id/button_torasso"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:text="Torasso"/>
+    <Button
+            android:id="@+id/button_Vinos"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:text="Vinos"/>
+    <Button
+            android:id="@+id/button_Agua"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:text="Aguas"/>
+    <Button
+        android:id="@+id/button_carrito"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        android:text="carrito"
+        android:visibility="visible"/>
 
-</FrameLayout>
+</LinearLayout>

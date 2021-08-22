@@ -5,7 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.empresadeapp.quilmesapp.data.model.User
 
-class UserViewModel: ViewModel() {
+class DataViewModel: ViewModel() {
     private val user = MutableLiveData<User>()
 
     fun setUser(usuario : User){
