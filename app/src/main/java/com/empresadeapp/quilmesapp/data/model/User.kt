@@ -1,8 +1,9 @@
 package com.empresadeapp.quilmesapp.data.model
 
-data class User ( val codigo: Int = 0,
-                  val nombre: String = "",
-                  val apellido: String = "",
-                  val direccion: String = "" ,
-                  val factura: String = "",
-                  val repartidor: String = "")
+data class User ( var codigo: String = "",
+                  var nombre: String = "",
+                  var apellido: String = "",
+                  var direccion: String = "" ,
+                  var factura: String = "",
+                  var repartidor: String = "",
+                  var contra: String = "")
