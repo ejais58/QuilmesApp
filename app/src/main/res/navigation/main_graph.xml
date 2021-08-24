@@ -22,6 +22,12 @@
         <action
             android:id="@+id/action_homeFragment_to_destacadoFragment"
             app:destination="@id/destacadoFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_quilmesFragment"
+            app:destination="@id/quilmesFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_pepsiFragment"
+            app:destination="@id/pepsiFragment" />
     </fragment>
     <fragment
         android:id="@+id/orderFragment"
@@ -42,4 +48,14 @@
         android:name="com.empresadeapp.quilmesapp.ui.home.destacado.DestacadoFragment"
         android:label="fragment_destacado"
         tools:layout="@layout/fragment_destacado" />
+    <fragment
+        android:id="@+id/quilmesFragment"
+        android:name="com.empresadeapp.quilmesapp.ui.home.quilmes.QuilmesFragment"
+        android:label="fragment_quilmes"
+        tools:layout="@layout/fragment_quilmes" />
+    <fragment
+        android:id="@+id/pepsiFragment"
+        android:name="com.empresadeapp.quilmesapp.ui.home.pepsi.PepsiFragment"
+        android:label="fragment_pepsi"
+        tools:layout="@layout/fragment_pepsi" />
 </navigation>

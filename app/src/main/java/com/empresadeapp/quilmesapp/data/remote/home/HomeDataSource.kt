@@ -16,4 +16,26 @@ class HomeDataSource {
         }
         return Result.Success(productoList)
     }
+
+    suspend fun getProductosQuilmes(): Result<List<Productos>> {
+        val productoList = mutableListOf<Productos>()
+        val querySnapshot = FirebaseFirestore.getInstance().collection("Quilmes").get().await()
+        for (producto in querySnapshot.documents){
+            producto.toObject(Productos::class.java)?.let {
+                productoList.add(it)
+            }
+        }
+        return Result.Success(productoList)
+    }
+
+    suspend fun getProductosPepsi(): Result<List<Productos>> {
+        val productoList = mutableListOf<Productos>()
+        val querySnapshot = FirebaseFirestore.getInstance().collection("Pepsi").get().await()
+        for (producto in querySnapshot.documents){
+            producto.toObject(Productos::class.java)?.let {
+                productoList.add(it)
+            }
+        }
+        return Result.Success(productoList)
+    }
 }

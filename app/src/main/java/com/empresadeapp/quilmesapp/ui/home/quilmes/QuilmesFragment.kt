@@ -1,4 +1,4 @@
-package com.empresadeapp.quilmesapp.ui.home.destacado
+package com.empresadeapp.quilmesapp.ui.home.quilmes
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -6,46 +6,43 @@ import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
-import androidx.recyclerview.widget.GridLayoutManager
 import com.empresadeapp.quilmesapp.R
 import com.empresadeapp.quilmesapp.core.Result
 import com.empresadeapp.quilmesapp.data.remote.home.HomeDataSource
-import com.empresadeapp.quilmesapp.databinding.FragmentDestacadoBinding
+import com.empresadeapp.quilmesapp.databinding.FragmentQuilmesBinding
 import com.empresadeapp.quilmesapp.domain.home.HomeRepoImpl
 import com.empresadeapp.quilmesapp.presentation.home.HomeViewModel
 import com.empresadeapp.quilmesapp.presentation.home.HomeViewModelFactory
-import com.empresadeapp.quilmesapp.ui.home.destacado.adapter.DestacadoAdapter
+import com.empresadeapp.quilmesapp.ui.home.adaptador.GlobalAdapter
 
 
-class DestacadoFragment : Fragment(R.layout.fragment_destacado) {
+class QuilmesFragment : Fragment(R.layout.fragment_quilmes) {
 
-    private lateinit var binding: FragmentDestacadoBinding
+    private lateinit var binding: FragmentQuilmesBinding
     private val viewModel by viewModels<HomeViewModel>{ HomeViewModelFactory(HomeRepoImpl(HomeDataSource())) }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding = FragmentDestacadoBinding.bind(view)
-        destacadoRecycler()
+        binding = FragmentQuilmesBinding.bind(view)
+        quilmesRecycler()
 
     }
 
-    private fun destacadoRecycler() {
-        viewModel.fetchProductoDestacados().observe(viewLifecycleOwner, Observer { result ->
-            when (result) {
+    private fun quilmesRecycler(){
+        viewModel.fetchProductoQuilmes().observe(viewLifecycleOwner, Observer { result ->
+            when (result){
                 is Result.Loading -> {
                     binding.progressBar.visibility = View.VISIBLE
                 }
                 is Result.Success -> {
                     binding.progressBar.visibility = View.GONE
-                    binding.rvDestacado.layoutManager = GridLayoutManager(requireContext(), 2)
-                    binding.rvDestacado.adapter = DestacadoAdapter(result.data)
+                    binding.rvQuilmes.adapter = GlobalAdapter(result.data)
                 }
                 is Result.Failure -> {
                     binding.progressBar.visibility = View.GONE
                     Toast.makeText(requireContext(), "error ${result.exception}", Toast.LENGTH_SHORT).show()
                 }
             }
-
         })
     }
 
