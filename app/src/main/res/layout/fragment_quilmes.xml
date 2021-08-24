@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".ui.home.destacado.DestacadoFragment">
+    tools:context=".ui.home.quilmes.QuilmesFragment">
 
     <RelativeLayout
         android:id="@+id/progress_bar"
@@ -18,11 +18,11 @@
     </RelativeLayout>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_destacado"
+        android:id="@+id/rv_quilmes"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        tools:listitem="@layout/item_producto_destacados"/>
+        tools:listitem="@layout/item_productos"/>
 
 </FrameLayout>

@@ -17,11 +17,25 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentHomeBinding.bind(view)
         destacado()
+        quilmes()
+        pepsi()
     }
 
     private fun destacado(){
         binding.buttonPromo.setOnClickListener {
             findNavController().navigate(R.id.action_homeFragment_to_destacadoFragment)
+        }
+    }
+
+    private fun quilmes(){
+        binding.buttonQuilmes.setOnClickListener {
+            findNavController().navigate(R.id.action_homeFragment_to_quilmesFragment)
+        }
+    }
+
+    private fun pepsi(){
+        binding.buttonPepsi.setOnClickListener {
+            findNavController().navigate(R.id.action_homeFragment_to_pepsiFragment)
         }
     }
 

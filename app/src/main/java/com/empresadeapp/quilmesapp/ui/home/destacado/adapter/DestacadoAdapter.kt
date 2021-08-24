@@ -7,11 +7,12 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.empresadeapp.quilmesapp.core.BaseViewHolder
 import com.empresadeapp.quilmesapp.data.model.Productos
-import com.empresadeapp.quilmesapp.databinding.ItemProductoBinding
+import com.empresadeapp.quilmesapp.databinding.ItemProductoDestacadosBinding
+
 
 class DestacadoAdapter(private val productoList: List<Productos>): RecyclerView.Adapter<BaseViewHolder<*>>(){
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder<*> {
-        val itemBinding = ItemProductoBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        val itemBinding = ItemProductoDestacadosBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return DestacadoScreemViewHolder(itemBinding, parent.context)
     }
 
@@ -24,7 +25,7 @@ class DestacadoAdapter(private val productoList: List<Productos>): RecyclerView.
     override fun getItemCount(): Int =productoList.size
 
     private inner class DestacadoScreemViewHolder(
-        val binding: ItemProductoBinding,
+        val binding: ItemProductoDestacadosBinding,
         val context: Context
     ): BaseViewHolder<Productos>(binding.root){
         override fun bind(item: Productos) {
