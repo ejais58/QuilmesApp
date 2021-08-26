@@ -28,6 +28,15 @@
         <action
             android:id="@+id/action_homeFragment_to_pepsiFragment"
             app:destination="@id/pepsiFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_torassoFragment"
+            app:destination="@id/torassoFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_aguasFragment"
+            app:destination="@id/aguasFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_vinosFragment"
+            app:destination="@id/vinosFragment" />
     </fragment>
     <fragment
         android:id="@+id/orderFragment"
@@ -58,4 +67,19 @@
         android:name="com.empresadeapp.quilmesapp.ui.home.pepsi.PepsiFragment"
         android:label="fragment_pepsi"
         tools:layout="@layout/fragment_pepsi" />
+    <fragment
+        android:id="@+id/torassoFragment"
+        android:name="com.empresadeapp.quilmesapp.ui.home.torasso.TorassoFragment"
+        android:label="fragment_torasso"
+        tools:layout="@layout/fragment_torasso" />
+    <fragment
+        android:id="@+id/aguasFragment"
+        android:name="com.empresadeapp.quilmesapp.ui.home.aguas.AguasFragment"
+        android:label="fragment_aguas"
+        tools:layout="@layout/fragment_aguas" />
+    <fragment
+        android:id="@+id/vinosFragment"
+        android:name="com.empresadeapp.quilmesapp.ui.home.vinos.VinosFragment"
+        android:label="fragment_vinos"
+        tools:layout="@layout/fragment_vinos" />
 </navigation>

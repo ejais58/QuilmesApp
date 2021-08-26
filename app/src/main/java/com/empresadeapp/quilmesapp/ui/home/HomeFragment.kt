@@ -19,6 +19,9 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         destacado()
         quilmes()
         pepsi()
+        torasso()
+        aguas()
+        vinos()
     }
 
     private fun destacado(){
@@ -36,6 +39,24 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
     private fun pepsi(){
         binding.buttonPepsi.setOnClickListener {
             findNavController().navigate(R.id.action_homeFragment_to_pepsiFragment)
+        }
+    }
+
+    private fun torasso(){
+        binding.buttonTorasso.setOnClickListener {
+            findNavController().navigate(R.id.action_homeFragment_to_torassoFragment)
+        }
+    }
+
+    private fun aguas(){
+        binding.buttonAgua.setOnClickListener {
+            findNavController().navigate(R.id.action_homeFragment_to_aguasFragment)
+        }
+    }
+
+    private fun vinos() {
+        binding.buttonVinos.setOnClickListener {
+            findNavController().navigate(R.id.action_homeFragment_to_vinosFragment)
         }
     }
 

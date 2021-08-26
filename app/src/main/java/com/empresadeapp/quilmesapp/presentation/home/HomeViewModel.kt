@@ -36,6 +36,33 @@ class HomeViewModel(private val repo: HomeRepo): ViewModel() {
         }
     }
 
+    fun fetchProductoTorasso() = liveData(Dispatchers.IO) {
+        emit(Result.Loading())
+        try {
+            emit(repo.getProductosTorasso())
+        } catch (e: Exception){
+            emit(Result.Failure(e))
+        }
+    }
+
+    fun fetchProductoAguas() = liveData(Dispatchers.IO) {
+        emit(Result.Loading())
+        try {
+            emit(repo.getProductosAguas())
+        } catch (e: Exception){
+            emit(Result.Failure(e))
+        }
+    }
+
+    fun fetchProductoVinos() = liveData(Dispatchers.IO) {
+        emit(Result.Loading())
+        try {
+            emit(repo.getProductosVinos())
+        } catch (e: Exception){
+            emit(Result.Failure(e))
+        }
+    }
+
 
 }
 
