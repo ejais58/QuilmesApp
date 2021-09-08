@@ -8,7 +8,7 @@ import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import com.empresadeapp.quilmesapp.R
 import com.empresadeapp.quilmesapp.databinding.FragmentProfileBinding
-import com.empresadeapp.quilmesapp.presentation.login.DataViewModel
+import com.empresadeapp.quilmesapp.presentation.DataViewModel
 
 
 class ProfileFragment : Fragment(R.layout.fragment_profile) {

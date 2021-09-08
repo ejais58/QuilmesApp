@@ -6,7 +6,8 @@
     android:orientation="vertical"
     android:gravity="center"
     android:paddingTop="170dp"
-    tools:context=".ui.home.HomeFragment">
+    tools:context=".ui.home.HomeFragment"
+    android:background="@drawable/android_background">
 
     <Button
             android:id="@+id/button_Promo"

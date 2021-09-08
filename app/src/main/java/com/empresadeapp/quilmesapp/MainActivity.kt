@@ -3,6 +3,7 @@ package com.empresadeapp.quilmesapp
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import androidx.appcompat.app.AlertDialog
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
@@ -20,6 +21,8 @@ class MainActivity : AppCompatActivity() {
         navController = navHostFragment.navController
         binding.bottomNavigationView.setupWithNavController(navController)
         observeDestinationChange()
+
+
     }
 
     private fun observeDestinationChange(){
@@ -37,3 +40,4 @@ class MainActivity : AppCompatActivity() {
 
 
 }
+

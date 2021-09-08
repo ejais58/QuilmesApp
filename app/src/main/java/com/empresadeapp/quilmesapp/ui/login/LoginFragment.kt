@@ -16,7 +16,7 @@ import com.empresadeapp.quilmesapp.core.Result
 import com.empresadeapp.quilmesapp.domain.login.LoginRepoImpl
 import com.empresadeapp.quilmesapp.presentation.login.LoginViewModel
 import com.empresadeapp.quilmesapp.presentation.login.LoginViewModelFactory
-import com.empresadeapp.quilmesapp.presentation.login.DataViewModel
+import com.empresadeapp.quilmesapp.presentation.DataViewModel
 
 
 class LoginFragment : Fragment(R.layout.fragment_login) {
